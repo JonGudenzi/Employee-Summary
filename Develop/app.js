@@ -49,6 +49,7 @@ employeeType = () => {
     .then(function(data) {
         console.log(data);
 
+////// if ENGINEER - ask this extra questions and push the answer to the array//////////
         if (data.role === "Engineer"){
             inquirer.prompt([{
                 type: "input",
@@ -60,7 +61,7 @@ employeeType = () => {
               employeeList.push(engineer);   
             })
         }
-
+////// if INTERN - ask this extra questions and push the answer to the array//////////
         if (data.role === "Intern"){
             inquirer.prompt([{
                 type: "input",
@@ -72,27 +73,47 @@ employeeType = () => {
               employeeList.push(intern);   
             })
         }
-
+////// if MANAGER - ask this extra questions and push the answer to the array//////////
         if (data.role === "Manager"){
             inquirer.prompt([{
                 type: "input",
                 name: "office",
                 message: "What is the manager's office number?"
+            },
+            {
+                type: "list",
+                name: "addmore",
+                message: "Would you like to add another employee?",
+                choices: [
+                    "yes",
+                    "no"
+                ]
             }])
             .then(function(managerData){
-              const manager = new Intern(data.name, data.id , data.email, managerData.officeNumber)
-              employeeList.push(manager);   
-            })
-        }
+              const manager = new Intern(data.name, data.id , data.email, managerData.office)
+              employeeList.push(manager); 
 
+              if (managerData.addmore === "yes"){
+                employeeType();
+            }
+                if (managerData.addmore === "no"){
+                    fs.writeFileSync(render(employeeList));
+                }
+                
+                    
+
+                
+            
+            
+            })   
+        }
     })
 
 }
+
+
 employeeType();
 
-// writeToFile = (employeeList) =>{
-//     fs.writeFile("./lib/htmlRenderer", employeeList);
-// }
 
 
 
