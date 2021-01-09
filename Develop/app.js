@@ -10,7 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -18,17 +17,17 @@ const employeeQuestions = [
     {
         type: "input",
         name: "name",
-        message: "What is your Employees name?"
+        message: "What is the Employee's name?"
     },
     {
         type: "input",
         name: "email",
-        message: "What is your employees email address?"
+        message: "What is your employee's email address?"
     },
     {
         type: "input",
         name: "id",
-        message: "What is your employees id?"
+        message: "What is your employee's id?"
     },
     {
         type: "list",
@@ -40,9 +39,12 @@ const employeeQuestions = [
         ]
     },
 ]
+
+
 const employeeList = [];
 
-function init() {
+
+employeeType = () => {
     inquirer.prompt(employeeQuestions)
     .then(function(data) {
         console.log(data);
@@ -51,7 +53,7 @@ function init() {
             inquirer.prompt([{
                 type: "input",
                 name: "github",
-                message: "What is your employees github?"
+                message: "What is your Engineer's github?"
             }])
             .then(function(engineerData){
               const engineer = new Engineer(data.name, data.id , data.email, engineerData.github)
@@ -59,15 +61,43 @@ function init() {
             })
         }
 
+        if (data.role === "Intern"){
+            inquirer.prompt([{
+                type: "input",
+                name: "school",
+                message: "What school did the intern attend?"
+            }])
+            .then(function(internData){
+              const intern = new Intern(data.name, data.id , data.email, internData.school)
+              employeeList.push(intern);   
+            })
+        }
+
+        if (data.role === "Manager"){
+            inquirer.prompt([{
+                type: "input",
+                name: "office",
+                message: "What is the manager's office number?"
+            }])
+            .then(function(managerData){
+              const manager = new Intern(data.name, data.id , data.email, managerData.officeNumber)
+              employeeList.push(manager);   
+            })
+        }
+
     })
-addNewEmployee(){
-    
-}
 
-    
 }
-init();
+employeeType();
 
+// writeToFile = (employeeList) =>{
+//     fs.writeFile("./lib/htmlRenderer", employeeList);
+// }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 
 
