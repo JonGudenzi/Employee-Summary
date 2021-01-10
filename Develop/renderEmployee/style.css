@@ -1,6 +1,3 @@
-
-
-
 body{
     background-image: url("./lines-of-waves-in-southeast-asia\ \(1\).jpg");
     background-size: cover;
@@ -10,9 +7,7 @@ body{
 
 
 .jumbo{
-    background-image: url("");
-    background-size: cover;
-    background-position: center;
+    background-color: rgb(209, 234, 255);
 }
 
 .employee-card{
