@@ -126,7 +126,7 @@ employeeType = () => {
                 ]
             }])
             .then(function(managerData){
-              const manager = new Intern(data.name, data.id , data.email, managerData.office)
+              const manager = new Manager(data.name, data.id , data.email, managerData.office)
               employeeList.push(manager); 
 
               if (managerData.addmore === "yes"){

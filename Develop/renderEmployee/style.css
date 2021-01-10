@@ -1,0 +1,41 @@
+
+
+
+body{
+    background-image: url("./lines-of-waves-in-southeast-asia\ \(1\).jpg");
+    background-size: cover;
+    background-position: bottom; 
+    background-repeat: no-repeat;
+}
+
+
+.jumbo{
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+}
+
+.employee-card{
+    margin: 10px;
+    
+}
+
+.card-header{
+    background-image: linear-gradient(rgb(209, 207, 90)5%, rgb(74, 141, 141)75%);
+}
+
+.list-group-item{
+   background-color: rgb(152, 252, 235);
+}
+
+.card-body{
+background-color: rgb(73, 150, 148);
+}
+
+.d-flex{
+    flex-wrap: wrap;
+}
+
+footer{
+    height: 257px;
+}
