@@ -10,11 +10,12 @@ body{
 }
 
 .employee-card{
-    margin: 10px;
+    margin: 5px;
+    border: turquoise 3px solid;
 }
 
 .card-header{
-    background-image: linear-gradient(rgb(209, 207, 90)5%, rgb(74, 141, 141)75%);
+    background-image: linear-gradient(rgb(209, 234, 255)20%, rgb(116, 189, 189)80%);
 }
 
 .list-group-item{
@@ -22,7 +23,7 @@ body{
 }
 
 .card-body{
-background-color: rgb(73, 150, 148);
+background-color:rgb(116, 189, 189);
 }
 
 .d-flex{
@@ -30,5 +31,5 @@ background-color: rgb(73, 150, 148);
 }
 
 footer{
-    height: 257px;
+    height: 450px;
 }
